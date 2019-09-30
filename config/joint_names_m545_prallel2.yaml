@@ -1,0 +1,1 @@
+controller_joint_names: ['shovel_paralle_link1_joint', 'shovel_parallel_link2_joint', 'shovel_cylinder', 'shovel_piston_joint', 'shovel', ]

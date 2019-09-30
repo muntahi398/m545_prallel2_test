@@ -1,0 +1,429 @@
+<?xml version="1.0"?>
+<robot
+  name="m545_prallel2">
+  <link
+    name="telescope">
+    <inertial>
+      <origin
+        xyz="-0.0251762959894512 -0.122434018632413 -0.070717815654961"
+        rpy="0 0 0" />
+      <mass
+        value="50.6757128595268" />
+      <inertia
+        ixx="38.9664709780259"
+        ixy="-0.362417718058571"
+        ixz="-0.370358945215419"
+        iyy="37.7073441826793"
+        iyz="1.04259450041213"
+        izz="2.41696044620818" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/telescope.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/telescope.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="shovel_parallel_link1">
+    <inertial>
+      <origin
+        xyz="-8.51799292211908E-09 -0.279862629541826 -0.033363057632168"
+        rpy="0 0 0" />
+      <mass
+        value="4.485678147532" />
+      <inertia
+        ixx="0.19413282808827"
+        ixy="-0.000928581471632878"
+        ixz="-0.000218936165422339"
+        iyy="0.123784323323483"
+        iyz="-0.0392211630807236"
+        izz="0.28092884237733" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/shovel_parallel_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/shovel_parallel_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shovel_paralle_link1_joint"
+    type="revolute">
+    <origin
+      xyz="0.0015 -0.0088821 0.88184"
+      rpy="-3.1416 -3.4413E-14 3.1416" />
+    <parent
+      link="telescope" />
+    <child
+      link="shovel_parallel_link1" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="shovel_parallel_link2">
+    <inertial>
+      <origin
+        xyz="0.00198855543662974 0.118065892690214 0.172637302835257"
+        rpy="0 0 0" />
+      <mass
+        value="3.0264087069137" />
+      <inertia
+        ixx="0.0790548751003764"
+        ixy="-7.8837740889272E-07"
+        ixz="-6.63212558751087E-07"
+        iyy="0.0690873303846564"
+        iyz="-0.0347735050807112"
+        izz="0.0428287246291022" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/shovel_parallel_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/shovel_parallel_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shovel_parallel_link2_joint"
+    type="revolute">
+    <origin
+      xyz="0.0015 -0.54512 -0.12848"
+      rpy="3.1416 -1.5777E-30 -3.1416" />
+    <parent
+      link="shovel_parallel_link1" />
+    <child
+      link="shovel_parallel_link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="shovel_parallel_link2_to_rotor_tilt_parallel" />
+  <joint
+    name="shovel_parallel_link2_to_rotor_tilt_parallel_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.21149 0.31571"
+      rpy="-1.5708 -0.8737 1.5708" />
+    <parent
+      link="shovel_parallel_link2" />
+    <child
+      link="shovel_parallel_link2_to_rotor_tilt_parallel" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="shovel_cylinder_to_parallel_link1_parallel_2" />
+  <joint
+    name="shovel_cylinder_to_parallel_link1_parallel_joint2"
+    type="fixed">
+    <origin
+      xyz="0.0015 -0.54512 -0.12848"
+      rpy="3.1416 -1.5777E-30 -3.1416" />
+    <parent
+      link="shovel_parallel_link1" />
+    <child
+      link="shovel_cylinder_to_parallel_link1_parallel_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="shovel_cylinder">
+    <inertial>
+      <origin
+        xyz="-0.213700087308717 0.0260453420818134 0.00107394995133003"
+        rpy="0 0 0" />
+      <mass
+        value="7.7948975679225" />
+      <inertia
+        ixx="0.046751791426886"
+        ixy="0.109681013653722"
+        ixz="0.0035887671829448"
+        iyy="0.793869167253777"
+        iyz="-0.000294618522187736"
+        izz="0.807406070169547" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/shovel_cylinder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/shovel_cylinder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shovel_cylinder"
+    type="revolute">
+    <origin
+      xyz="0.0018083 -0.42986 0.11162"
+      rpy="3.1416 -1.5708 0" />
+    <parent
+      link="telescope" />
+    <child
+      link="shovel_cylinder" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="shovel_piston">
+    <inertial>
+      <origin
+        xyz="-0.260194070882354 3.73003767319718 -1.23517031671365"
+        rpy="0 0 0" />
+      <mass
+        value="1868.68809094591" />
+      <inertia
+        ixx="10438.1162190134"
+        ixy="260.404927200917"
+        ixz="-217.293669672649"
+        iyy="6137.21752674653"
+        iyz="3673.56529091459"
+        izz="7849.24723412392" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/shovel_piston.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/shovel_piston.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shovel_piston_joint"
+    type="prismatic">
+    <origin
+      xyz="0.34516 -0.047677 0"
+      rpy="0.13726 1.5708 0" />
+    <parent
+      link="shovel_cylinder" />
+    <child
+      link="shovel_piston" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="shovel_cylinder_to_parallel_link1_parallel" />
+  <joint
+    name="shovel_cylinder_to_parallel_link1_parallel_joint"
+    type="fixed">
+    <origin
+      xyz="-0.0018083 0 0.5588"
+      rpy="-0.13726 -5.7969E-15 1.4349E-14" />
+    <parent
+      link="shovel_piston" />
+    <child
+      link="shovel_cylinder_to_parallel_link1_parallel" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="shovel_link">
+    <inertial>
+      <origin
+        xyz="-0.0176253774945705 0.32142611940313 0.00806759407032404"
+        rpy="0 0 0" />
+      <mass
+        value="29.5529874934542" />
+      <inertia
+        ixx="1.90250522775099"
+        ixy="-0.168725516939882"
+        ixz="-0.0272750918960807"
+        iyy="0.651987157645773"
+        iyz="-0.0405921454532976"
+        izz="1.57959827410494" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/shovel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.941176470588235 0.674509803921569 0.117647058823529 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://m545_prallel2/meshes/shovel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shovel"
+    type="revolute">
+    <origin
+      xyz="0.0015 -0.038894 1.1518"
+      rpy="1.5708 0.8737 -1.5708" />
+    <parent
+      link="telescope" />
+    <child
+      link="shovel_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+
+<!--
+<link    name="shovel_rotor_tilt_to_parallel_link2" /> -->
+  <link    name="shovel_rotor_tilt_to_parallel_link2" >
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.1"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.1"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.1"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.208333333333" ixy="0" ixz="0" iyy="0.208333333333" iyz="0" izz="0.208333333333"/>
+    </inertial>
+</link> 
+  <joint
+    name="shovel_rotor_tilt_to_parallel_link2_joint"
+    type="fixed">
+    <origin
+      xyz="0.061365 0.34462 0.0015"
+      rpy="8.9101E-16 -1.6444E-15 -3.1416" />
+    <parent
+      link="shovel_link" />
+    <child
+      link="shovel_rotor_tilt_to_parallel_link2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+<gazebo reference='shovel_parallel_link2_to_rotor_tilt_parallel_joint'>
+  
+    <disableFixedJointLumping>true</disableFixedJointLumping>
+</gazebo>
+<gazebo reference='shovel_cylinder_to_parallel_link1_parallel_joint2'>
+      <disableFixedJointLumping>true</disableFixedJointLumping>
+</gazebo>
+<gazebo reference='shovel_cylinder_to_parallel_link1_parallel_joint'>  
+    <disableFixedJointLumping>true</disableFixedJointLumping>
+</gazebo>
+<gazebo reference='shovel_rotor_tilt_to_parallel_link2_joint'>
+    <disableFixedJointLumping>true</disableFixedJointLumping>
+</gazebo>
+
+  <gazebo>
+  <joint name="joint_link2_to_rotor_tilt_closed" type="revolute">
+    <parent>shovel_parallel_link2_to_rotor_tilt_parallel</parent>
+    <child>shovel_rotor_tilt_to_parallel_link2</child>
+    <pose>-0 0 0 0 0 0</pose>
+    <axis>    <xyz>0 1 0</xyz>   </axis>
+  </joint>
+  </gazebo>
+
+</robot>
